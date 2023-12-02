@@ -4,7 +4,17 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        research();
+    }
+});
+
 search.addEventListener('click', () => {
+    research();
+})
+
+function research() {
     const APIKey = '303b7ad4afd79c0daf56c9c1ebab4512';
     console.log('a');
 
@@ -75,4 +85,4 @@ search.addEventListener('click', () => {
         });
 
 
-});
+}

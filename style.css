@@ -39,7 +39,8 @@ body{
     width: 80%;
     font-size: 24px;
     font-weight: 500;
-    text-transform: uppercase;
+    /* 设置首字母大写 */
+    text-transform: capitalize;
     padding-left: 32px;
 }
 
@@ -181,4 +182,8 @@ body{
         scale: 1;
         opacity: 1;
     }
+}
+
+#coords {
+    background: rgb(255, 255, 255);
 }

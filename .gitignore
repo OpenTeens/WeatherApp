@@ -1,1 +1,4 @@
 env.js
+.vscode
+.vscode/
+.vscode/*

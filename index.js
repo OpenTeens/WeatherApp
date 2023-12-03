@@ -5,16 +5,20 @@ const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 const coords = document.querySelector('#coords');
 
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        research();
+    }
+});
+
 search.addEventListener('click', () => {
+    research();
+})
+
+function research() {
     getWeather()
 });
 
-// 按下enter后也能搜索
-document.addEventListener('keydown', (e) => {
-    if (e.keyCode === 13) {
-        getWeather();
-    }
-})
 
 function getWeather() {
     const APIKey = '303b7ad4afd79c0daf56c9c1ebab4512';
@@ -90,4 +94,5 @@ function getWeather() {
 
 
         });
+
 }

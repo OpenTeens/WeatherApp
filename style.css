@@ -18,7 +18,7 @@ body{
     position: relative;
     width: 400px;
     height: 105px;
-    background: #fff;
+    background: #c5c5c5;
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 18px;
@@ -39,7 +39,8 @@ body{
     width: 80%;
     font-size: 24px;
     font-weight: 500;
-    text-transform: uppercase;
+    /* 设置首字母大写 */
+    text-transform: capitalize;
     padding-left: 32px;
 }
 
@@ -77,13 +78,13 @@ body{
 }
 
 .weather-box img{
-    width: 60%;
-    margin-top: 30px;
+    width: 67%;
+    margin-top: 37px;
 }
 
 .weather-box .temperature{
     position: relative;
-    color: #06283D;
+    color: rgb(109, 212, 205);
     font-size: 4rem;
     font-weight: 800;
     margin-top: 30px;
@@ -118,7 +119,7 @@ body{
 }
 
 .weather-details .humidity{
-    padding-left: 20px;
+    padding-left: 37px;
     justify-content: flex-start;
 }
 
@@ -181,4 +182,8 @@ body{
         scale: 1;
         opacity: 1;
     }
+}
+
+#coords {
+    background: rgb(255, 255, 255);
 }

@@ -3,6 +3,7 @@ const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
+const coords = document.querySelector('#coords');
 
 document.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
@@ -15,8 +16,12 @@ search.addEventListener('click', () => {
 })
 
 function research() {
+    getWeather()
+});
+
+
+function getWeather() {
     const APIKey = '303b7ad4afd79c0daf56c9c1ebab4512';
-    console.log('a');
 
     const city = document.querySelector('.search-box input').value;
 
@@ -24,9 +29,14 @@ function research() {
         return;
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
-        .then(response => response.json())
+        .then(response=>{
+            if(!response.ok){
+                throw new Error("API Issue");
+            }
+            return response.json();
+        })
         .then(json => {
-
+            console.log(json);
             if (json.cod === '404') {
                 container.style.height = '400px';
                 weatherBox.style.display = 'none';
@@ -74,6 +84,7 @@ function research() {
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+            coords.innerHTML = `Lat: ${json.coord.lat} | Lon: ${json.coord.lon}`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
@@ -83,6 +94,5 @@ function research() {
 
 
         });
-
 
 }

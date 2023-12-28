@@ -7,18 +7,13 @@ const coords = document.querySelector('#coords');
 
 document.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
-        research();
+        getWeather();
     }
 });
 
 search.addEventListener('click', () => {
-    research();
+    getWeather();
 })
-
-function research() {
-    getWeather()
-};
-
 
 function getWeather() {
     const APIKey = '303b7ad4afd79c0daf56c9c1ebab4512';

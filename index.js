@@ -17,7 +17,7 @@ search.addEventListener('click', () => {
 
 function research() {
     getWeather()
-});
+};
 
 
 function getWeather() {

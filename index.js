@@ -24,7 +24,7 @@ function getWeather() {
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response=>{
-            if(!response.ok){
+            if(!response.ok && response.status!== 404) { // allow error404 and process it later
                 throw new Error("API Issue");
             }
             return response.json();

@@ -3,7 +3,6 @@ const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
-const coords = document.querySelector('#coords');
 
 document.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
@@ -50,6 +49,7 @@ function getWeather() {
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
             const pollution = document.querySelector('.weather-details .pollution span');
+            const coords = document.querySelector('.weather-details .coords span');
 
             switch (json.weather[0].main) {
                 case 'Clear':
@@ -81,15 +81,12 @@ function getWeather() {
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             pollution.innerHTML = `114514`;
-            coords.innerHTML = `Lat: ${json.coord.lat} | Lon: ${json.coord.lon}`;
+            coords.innerHTML = `${Math.floor(json.coord.lat)}, ${Math.floor(json.coord.lon)}`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
-
-
         });
-
 }

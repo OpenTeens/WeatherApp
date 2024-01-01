@@ -3,22 +3,16 @@ const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
-const coords = document.querySelector('#coords');
 
 document.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
-        research();
+        getWeather();
     }
 });
 
 search.addEventListener('click', () => {
-    research();
+    getWeather();
 })
-
-function research() {
-    getWeather()
-});
-
 
 function getWeather() {
     const APIKey = '303b7ad4afd79c0daf56c9c1ebab4512';
@@ -30,7 +24,7 @@ function getWeather() {
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response=>{
-            if(!response.ok){
+            if(!response.ok && response.status!== 404) { // allow error404 and process it later
                 throw new Error("API Issue");
             }
             return response.json();
@@ -55,6 +49,7 @@ function getWeather() {
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
             const pollution = document.querySelector('.weather-details .pollution span');
+            const coords = document.querySelector('.weather-details .coords span');
 
             switch (json.weather[0].main) {
                 case 'Clear':
@@ -86,15 +81,12 @@ function getWeather() {
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
             pollution.innerHTML = `114514`;
-            coords.innerHTML = `Lat: ${json.coord.lat} | Lon: ${json.coord.lon}`;
+            coords.innerHTML = `${Math.floor(json.coord.lat)}, ${Math.floor(json.coord.lon)}`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
             weatherBox.classList.add('fadeIn');
             weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
-
-
         });
-
 }

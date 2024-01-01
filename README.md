@@ -53,4 +53,4 @@ start http://127.0.0.1:5500/index.html
 
 ## 📬 联系方式
 
-项目链接：https://github.com/Yourname/WeatherApp
+原项目链接：https://github.com/Yourname/WeatherApp

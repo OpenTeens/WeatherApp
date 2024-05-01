@@ -50,6 +50,8 @@ function getWeather() {
             const wind = document.querySelector('.weather-details .wind span');
             const pollution = document.querySelector('.weather-details .pollution span');
             const coords = document.querySelector('.weather-details .coords span');
+            const sunrise = document.querySelector('.weather-details .sunrise span');
+            const sunset = document.querySelector('.weather-details .sunset span');
 
             switch (json.weather[0].main) {
                 case 'Clear':
@@ -79,9 +81,25 @@ function getWeather() {
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+            wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
             pollution.innerHTML = `114514`;
-            coords.innerHTML = `${Math.floor(json.coord.lat)}, ${Math.floor(json.coord.lon)}`;
+
+            let showCoords = (lat, lon) =>
+                `${Math.abs(lat)}°${lat >= 0 ? 'N' : 'S'}
+                ${Math.abs(lon)}°${lon >= 0 ? 'E' : 'W'}`;
+            coords.innerHTML = 
+            showCoords(Math.floor(json.coord.lat), Math.floor(json.coord.lon));
+            
+            let showHourAndMinute = (h, m) => 
+                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+
+            sunriseDate = new Date(json.sys.sunrise * 1000);
+            sunrise.innerHTML = 
+            showHourAndMinute(sunriseDate.getHours(), sunriseDate.getMinutes());
+
+            sunsetDate = new Date(json.sys.sunset * 1000);
+            sunset.innerHTML = 
+            showHourAndMinute(sunsetDate.getHours(), sunsetDate.getMinutes());
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';

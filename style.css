@@ -113,10 +113,7 @@ body{
 }
 
 .weather-details .humidity, .weather-details .pollution, .weather-details .wind, .weather-details .coords{
-    display: flex;
-    align-items: center;
-    width: 33.333333%;
-    height: 100px;
+    width: 20%;
 }
 
 .weather-details .humidity{
@@ -137,8 +134,8 @@ body{
 }
 
 .weather-details span{
-    color: #06283D;
-    font-size: 22px;
+    color: #3a063d;
+    font-size: 15px;
     font-weight: 500;
 }
 

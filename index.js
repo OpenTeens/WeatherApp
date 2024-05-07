@@ -79,9 +79,14 @@ function getWeather() {
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+            wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
             pollution.innerHTML = `114514`;
-            coords.innerHTML = `${Math.floor(json.coord.lat)}, ${Math.floor(json.coord.lon)}`;
+
+            let showCoords = (lat, lon) =>
+                `${Math.abs(lat)}°${lat >= 0 ? 'N' : 'S'}
+                ${Math.abs(lon)}°${lon >= 0 ? 'E' : 'W'}`;
+            coords.innerHTML = 
+            showCoords(Math.floor(json.coord.lat), Math.floor(json.coord.lon));
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -6,19 +6,26 @@
     box-sizing: border-box;
 }
 
-body{
+:root {
+    --main-bg-color: #06283D;
+    --secondary-bg-color: #c5c5c5;
+    --primary-text-color: #06283D;
+    --secondary-text-color: rgb(109, 212, 205);
+}
+
+body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #06283D;
+    background: var(--main-bg-color);
 }
 
-.container{
+.container {
     position: relative;
     width: 400px;
     height: 105px;
-    background: #c5c5c5;
+    background: var(--secondary-bg-color);
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 18px;
@@ -26,7 +33,7 @@ body{
     transition: 0.6s ease-out;
 }
 
-.search-box{
+.search-box {
     width: 100%;
     height: min-content;
     display: flex;
@@ -34,153 +41,174 @@ body{
     justify-content: space-between;
 }
 
-.search-box input{
-    color: #06283D;
-    background: #c5c5c5;
+.search-box input {
+    color: var(--primary-text-color);
+    background: var(--secondary-bg-color);
     width: 80%;
     font-size: 24px;
     font-weight: 500;
-    /* 设置首字母大写 */
     text-transform: capitalize;
     padding-left: 32px;
 }
 
-.search-box input::placeholder{
+.search-box input::placeholder {
     font-size: 20px;
     font-weight: 500;
-    color: #06283D;
+    color: var(--primary-text-color);
     text-transform: capitalize;
 }
 
-.search-box button{
+.search-box button {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    color: #06283D;
+    color: var(--primary-text-color);
     background: #dff6ff;
     border-radius: 50%;
     font-size: 22px;
     transition: 0.4s ease;
 }
 
-.search-box button:hover{
+.search-box button:hover {
     color: #fff;
-    background: #06283D;
+    background: var(--main-bg-color);
 }
 
-.search-box i{
+.search-box i {
     position: absolute;
-    color: #06283D;
+    color: var(--primary-text-color);
     font-size: 28px;
 }
 
-.weather-box{
+.weather-box {
     text-align: center;
 }
 
-.weather-box img{
+.weather-box img {
     width: 67%;
-    margin-top: 37px;
+    margin-top: 20px; /* 缩小间距 */
 }
 
-.weather-box .temperature{
+.weather-box .city-name {
+    color: var(--primary-text-color);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px; /* 缩小间距 */
+}
+
+.weather-box .temperature {
     position: relative;
-    color: rgb(109, 212, 205);
-    font-size: 4rem;
+    color: var(--secondary-text-color);
+    font-size: 3.5rem; /* 缩小字体 */
     font-weight: 800;
-    margin-top: 30px;
+    margin-top: 10px; /* 缩小间距 */
     margin-left: -16px;
 }
 
-.weather-box .temperature span{
+.weather-box .temperature span {
     position: absolute;
     margin-left: 4px;
     font-size: 1.5rem;
 }
 
-.weather-box .description{
-    color: #06283D;
-    font-size: 22px;
+.weather-box .description {
+    color: var(--primary-text-color);
+    font-size: 20px; /* 缩小字体 */
     font-weight: 500;
     text-transform: capitalize;
+    margin-top: 5px; /* 缩小间距 */
 }
 
-.weather-details{
+.weather-details {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 20px; /* 缩小间距 */
 }
 
-.weather-details .humidity, .weather-details .pollution, .weather-details .wind, .weather-details .coords{
+.weather-details .humidity,
+.weather-details .pollution,
+.weather-details .wind,
+.weather-details .coords {
     display: flex;
     align-items: center;
     width: 33.333333%;
-    height: 100px;
+    height: 80px; /* 缩小高度 */
 }
 
-.weather-details .humidity{
+.weather-details .humidity {
     padding-left: 10px;
     justify-content: flex-start;
 }
 
-.weather-details .coords{
+.weather-details .coords {
     padding-right: 0px;
     justify-content: flex-end;
 }
 
-.weather-details i{
-    color: #06283D;
+.weather-details i {
+    color: var(--primary-text-color);
     font-size: 26px;
     margin-right: 10px;
     margin-top: 6px;
 }
 
-.weather-details span{
-    color: #06283D;
-    font-size: 22px;
+.weather-details span {
+    color: var(--primary-text-color);
+    font-size: 20px; /* 缩小字体 */
     font-weight: 500;
 }
 
-.weather-details p{
-    color: #06283D;
+.weather-details p {
+    color: var(--primary-text-color);
     font-size: 14px;
     font-weight: 500;
 }
 
-.not-found{
+.not-found {
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px; /* 缩小间距 */
     scale: 0;
     opacity: 0;
     display: none;
 }
 
-.not-found img{
+.not-found img {
     width: 70%;
 }
 
-.not-found p{
-    color: #06283D;
+.not-found p {
+    color: var(--primary-text-color);
     font-size: 22px;
     font-weight: 500;
     margin-top: 12px;
 }
 
-.weather-box, .weather-details{
+.weather-box,
+.weather-details {
     scale: 0;
     opacity: 0;
 }
 
-.fadeIn{
+.fadeIn {
     animation: 0.5s fadeIn forwards;
     animation-delay: 0.5s;
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
     to {
         scale: 1;
         opacity: 1;
     }
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.6;
 }

@@ -5,71 +5,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="A simple weather application to get current weather information">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Weather App | OpenTeens</title>
 </head>
 
 <body>
+<noscript>
+    <p>Please enable JavaScript to use this application.</p>
+</noscript>
 
-    <div class="container">
-        <div class="search-box">
-            <i class="fa-solid fa-location-dot"></i>
-            <input type="text" placeholder="Enter your location">
-            <button class="fa-solid fa-magnifying-glass"></button>
-        </div>
+<main class="container">
+    <section class="search-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" placeholder="Enter your location">
+        <button class="fa-solid fa-magnifying-glass"></button>
+    </section>
 
-        <div class="not-found">
-            <img src="images/404.png">
-            <p>Oops! Invalid location :/</p>
-        </div>
+    <section class="not-found">
+        <img src="images/404.png" alt="404 Error">
+        <p>Oops! Invalid location :/</p>
+    </section>
 
-        <div class="weather-box">
-            <img src="">
-            <p class="temperature"></p>
-            <p class="description"></p>
-        </div>
+    <section class="weather-box">
+        <h2 class="city-name"></h2>
+        <img src="" alt="Weather Icon">
+        <p class="temperature"></p>
+        <p class="description"></p>
+    </section>
 
-        <div class="weather-details">
-            <div class="humidity">
-                <i class="fa-solid fa-water"></i>
-                <div class="text">
-                    <span></span>
-                    <p>Humidity</p>
-                </div>
-            </div>
-
-            <div class="pollution" style="display: none;">
-                <i class="fa-solid fa-wind"></i>
-                <div class="text">
-                    <span></span>
-                    <p>Air Pollution</p>
-                </div>
-            </div>
-
-            <div class="wind">
-                <i class="fa-solid fa-wind"></i>
-                <div class="text">
-                    <span></span>
-                    <p>Wind Speed</p>
-                </div>
-            </div>
-
-            <div class="coords">
-                <i class="fa-solid fa-compass"></i>
-                <div class="text">
-                    <span></span>
-                    <p>Coords</p>
-                </div>
+    <section class="weather-details">
+        <div class="humidity">
+            <i class="fa-solid fa-water"></i>
+            <div class="text">
+                <span></span>
+                <p>Humidity</p>
             </div>
         </div>
 
-    </div>
+        <div class="pollution" style="display: none;">
+            <i class="fa-solid fa-wind"></i>
+            <div class="text">
+                <span></span>
+                <p>Air Pollution</p>
+            </div>
+        </div>
 
-    <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+        <div class="wind">
+            <i class="fa-solid fa-wind"></i>
+            <div class="text">
+                <span></span>
+                <p>Wind Speed</p>
+            </div>
+        </div>
+
+        <div class="coords">
+            <i class="fa-solid fa-compass"></i>
+            <div class="text">
+                <span></span>
+                <p>Coords</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    Developed by OpenTeens Community
+</footer>
+
+<script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
+<script src="index.js"></script>
 </body>
 
 </html>
